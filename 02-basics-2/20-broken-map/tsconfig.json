@@ -4,6 +4,7 @@
   "files": [],
   "compilerOptions": {
     "outDir": "dist",
+    "lib": ["DOM", "ESNext"],
     "paths": {
       "@/*": ["./*"]
     }
