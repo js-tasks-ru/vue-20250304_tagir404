@@ -1,5 +1,3 @@
-import { computed, defineComponent, ref } from 'vue'
-
 // Значения взяты из https://jsonplaceholder.typicode.com/comments
 export const emails = [
   'Eliseo@gardner.biz',
@@ -28,25 +26,3 @@ export const emails = [
   'Jeffery@juwan.us',
   'Isaias_Kuhic@jarrett.net',
 ]
-
-export default defineComponent({
-  name: 'MarkedEmailsApp',
-
-  setup() {},
-
-  template: `
-    <div>
-      <div class="form-group">
-        <input type="search" aria-label="Search" />
-      </div>
-      <ul aria-label="Emails">
-        <li>
-          Eliseo@gardner.biz
-        </li>
-        <li class="marked">
-          Jayne_Kuhic@sydney.com
-        </li>
-      </ul>
-    </div>
-  `,
-})
