@@ -1,5 +1,5 @@
 import { defineComponent, ref } from 'vue'
-import UiClock from './UiClock.js'
+import UiClock from './UiClock.vue'
 
 export default defineComponent({
   name: 'App',
