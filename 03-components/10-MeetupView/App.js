@@ -1,6 +1,6 @@
 import { computed, defineComponent, ref } from 'vue'
 import { UiRadioGroup } from '@shgk/vue-course-ui'
-import MeetupView from './MeetupView.js'
+import MeetupView from './MeetupView.vue'
 import meetups from './meetups.fixture.ts'
 
 export default defineComponent({
