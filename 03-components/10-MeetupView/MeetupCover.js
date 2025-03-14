@@ -10,7 +10,7 @@ export default defineComponent({
     },
 
     image: {
-      type: String,
+      type: [String, null],
     },
   },
 

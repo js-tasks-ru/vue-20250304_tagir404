@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import type { VueWrapper } from '@vue/test-utils'
-import MeetupView from '@/MeetupView.js'
+import MeetupView from '@/MeetupView.vue'
 import meetups from '@/meetups.fixture.ts'
 
 describe('components/MeetupView', () => {

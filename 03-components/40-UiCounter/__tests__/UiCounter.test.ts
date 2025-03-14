@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { mount, VueWrapper } from '@vue/test-utils'
-import UiCounter from '@/UiCounter.js'
+import UiCounter from '@/UiCounter.vue'
 
 function mountUiCounter({ count, min, max }: { count: number; min?: number; max?: number }) {
   const wrapper = mount(UiCounter, { props: { count, min, max } })

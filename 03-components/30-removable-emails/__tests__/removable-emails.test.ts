@@ -1,8 +1,9 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { VueWrapper } from '@vue/test-utils'
-import MarkedEmailsApp, { getEmails } from '@/MarkedEmailsApp.js'
-import EmailListItem from '@/EmailListItem.js'
+import MarkedEmailsApp from '@/MarkedEmailsApp.vue'
+import EmailListItem from '@/EmailListItem.vue'
+import { getEmails } from '@/emails'
 
 describe('components/removable-emails', () => {
   const emails = getEmails()

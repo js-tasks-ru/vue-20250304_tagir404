@@ -3,6 +3,7 @@
   "include": ["**/*", "**/*.vue"],
   "files": [],
   "compilerOptions": {
+    "lib": ["DOM"],
     "outDir": "dist",
     "paths": {
       "@/*": ["./*"]
