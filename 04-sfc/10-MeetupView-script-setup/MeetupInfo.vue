@@ -1,43 +1,21 @@
-<script>
-import { computed, defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 import { UiIcon } from '@shgk/vue-course-ui'
 
-export default defineComponent({
-  name: 'MeetupInfo',
+const props = defineProps<{
+  organizer: string
+  place: string
+  date: number
+}>()
 
-  components: {
-    UiIcon,
-  },
-
-  props: {
-    organizer: {
-      type: String,
-    },
-
-    place: {
-      type: String,
-    },
-
-    date: {
-      type: Number,
-    },
-  },
-
-  setup(props) {
-    const isoDate = computed(() => new Date(props.date).toISOString().slice(0, 10))
-    const localDate = computed(() =>
-      new Date(props.date).toLocaleString(navigator.language, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }),
-    )
-    return {
-      isoDate,
-      localDate,
-    }
-  },
-})
+const isoDate = computed(() => new Date(props.date).toISOString().slice(0, 10))
+const localDate = computed(() =>
+  new Date(props.date).toLocaleString(navigator.language, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }),
+)
 </script>
 
 <template>
