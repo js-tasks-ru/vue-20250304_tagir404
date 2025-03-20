@@ -1,13 +1,43 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { Slot } from 'vue';
+
+const props = defineProps<{
+  for?: string
+  label?: string
+  description?: string
+  hint?: string
+  showHint?: boolean
+  invalid?: boolean
+}>()
+
+defineSlots<{
+  default?: Slot
+  label?: Slot
+  description?: Slot
+}>()
+</script>
 
 <template>
   <div class="form-group">
     <div class="form-group__label-wrapper">
-      <label for="FOR" class="form-group__label">LABEL</label>
-      <div class="form-group__description">DESCRIPTION</div>
+      <label :for="props.for" class="form-group__label">
+        <slot name="label">{{ props.label }}</slot>
+      </label>
+      <div class="form-group__description">
+        <slot name="description">{{ props.description }}</slot>
+      </div>
     </div>
-    <div class="form-group__control">CONTENT</div>
-    <div class="form-group__hint form-group__hint--invalid">HINT | ERROR</div>
+    <div class="form-group__control">
+      <slot />
+    </div>
+    <div
+      v-if="hint"
+      v-show="showHint || invalid"
+      class="form-group__hint"
+      :class="{ 'form-group__hint--invalid': invalid }"
+    >
+      {{ showHint || invalid ? hint : '' }}
+    </div>
   </div>
 </template>
 
@@ -33,9 +63,9 @@
   font-size: var(--font-size-small);
   color: var(--color-dimmed);
   min-height: 1lh;
+}
 
-  &.form-group__hint--invalid {
-    color: var(--color-danger);
-  }
+.form-group__hint.form-group__hint--invalid {
+  color: var(--color-danger);
 }
 </style>
