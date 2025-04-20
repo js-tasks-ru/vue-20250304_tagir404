@@ -1,7 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { VueWrapper, DOMWrapper } from '@vue/test-utils'
-import MarkedEmailsApp, { emails } from '../MarkedEmailsApp.js'
+import MarkedEmailsApp from '../MarkedEmailsApp.vue'
+import { emails } from '../emails'
 
 describe('MarkedEmailsApp', () => {
   let wrapper: VueWrapper
