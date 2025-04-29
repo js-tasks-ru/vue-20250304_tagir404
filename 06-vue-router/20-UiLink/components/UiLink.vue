@@ -1,10 +1,18 @@
-<script setup>
+<script setup lang="ts">
+import type { RouteLocationRaw } from 'vue-router'
+
+defineProps<{
+  to?: RouteLocationRaw
+  href?: string
+}>()
 // Вместо <span> должен быть <RouterLink> или <a>
 // Используйте динамический компонент <component :is="...">
 </script>
 
 <template>
-  <span class="link" tabindex="0">Link</span>
+  <component :is="to ? 'RouterLink' : 'a'" tabindex="0" :to :href>
+    <slot />
+  </component>
 </template>
 
 <style scoped>

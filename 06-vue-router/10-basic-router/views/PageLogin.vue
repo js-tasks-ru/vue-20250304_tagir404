@@ -4,14 +4,23 @@ import { ref } from 'vue'
 import MeetupsAuthForm from '../components/MeetupsAuthForm.vue'
 import LayoutAuth from '../components/LayoutAuth.vue'
 import { login } from '../api.ts'
+import { useRoute, useRouter } from 'vue-router'
 
 const email = ref('demo@email')
 const password = ref('password')
+
+const router = useRouter()
+const route = useRoute()
 
 async function onSubmit() {
   try {
     await login(email.value, password.value)
     // Авторизация прошла успешно
+    if(route.query.from && typeof route.query.from === 'string') {
+      router.push(route.query.from)
+    } else {
+      router.push('/')
+    }
   } catch (error) {
     alert((error as Error).message)
   }
@@ -35,7 +44,7 @@ async function onSubmit() {
 
       <template #append>
         Нет аккаунта?
-        <a href="/register">Зарегистрируйтесь</a>
+        <RouterLink to="/register">Зарегистрируйтесь</RouterLink>
       </template>
     </MeetupsAuthForm>
   </LayoutAuth>
